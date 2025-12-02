@@ -3,32 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Site no GitHub</title>
+    <title>Portfólio de Lucineia</title>
+    <!-- Tailwind CSS para estilização rápida e bonita -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dracula: {
+                            bg: '#282a36',
+                            current: '#44475a',
+                            selection: '#44475a',
+                            fg: '#f8f8f2',
+                            comment: '#6272a4',
+                            cyan: '#8be9fd',
+                            green: '#50fa7b',
+                            orange: '#ffb86c',
+                            pink: '#ff79c6',
+                            purple: '#bd93f9',
+                            red: '#ff5555',
+                            yellow: '#f1fa8c'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f2f5;
-            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
         }
-        .container {
-            text-align: center;
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        .glass-panel {
+            background: rgba(68, 71, 90, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(189, 147, 249, 0.2);
         }
-        h1 { color: #2da44e; }
-        p { color: #555; }
+        .hover-card:hover {
+            transform: translateY(-5px);
+            border-color: #bd93f9;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Olá, Mundo!</h1>
-        <p>Este é meu primeiro site hospedado no GitHub Pages.</p>
+<body class="bg-dracula-bg text-dracula-fg min-h-screen flex flex-col">
+
+    <!-- Navbar -->
+    <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto w-full">
+        <div class="text-2xl font-bold text-dracula-pink">
+            &lt;Lucineia/&gt;
+        </div>
+        <div class="space-x-6 hidden md:block text-dracula-cyan">
+            <a href="#sobre" class="hover:text-dracula-pink transition">Sobre</a>
+            <a href="#tech" class="hover:text-dracula-pink transition">Tecnologias</a>
+            <a href="#contato" class="hover:text-dracula-pink transition">Contato</a>
+        </div>
+        <!-- Mobile Menu Button (visible on small screens) -->
+        <button class="md:hidden text-dracula-cyan text-2xl" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-dracula-current p-4 text-center space-y-4">
+        <a href="#sobre" class="block text-dracula-cyan">Sobre</a>
+        <a href="#tech" class="block text-dracula-cyan">Tecnologias</a>
+        <a href="#contato" class="block text-dracula-cyan">Contato</a>
     </div>
+
+    <!-- Hero Section -->
+    <header class="flex-grow flex flex-col justify-center items-center text-center p-8 mt-10">
+        <div class="relative mb-6">
+            <div class="absolute -inset-1 bg-gradient-to-r from-dracula-purple to-dracula-pink rounded-full blur opacity-75"></div>
+            <!-- Substitua o src abaixo pela URL da sua foto de perfil do GitHub -->
+            <img src="https://github.com/identicons/lucineia.png" alt="Profile" class="relative w-32 h-32 rounded-full border-4 border-dracula-bg object-cover">
+        </div>
+        
+        <h1 class="text-4xl md:text-6xl font-bold mb-4">Olá, eu sou <span class="text-dracula-purple">Lucineia</span>! 👋</h1>
+        <p class="text-xl text-dracula-comment max-w-2xl mx-auto mb-8">
+            Desenvolvedora apaixonada por tecnologia. Focada em <span class="text-dracula-green">Desenvolvimento Web e Aplicativos</span> e criando soluções inovadoras.
+        </p>
+        
+        <div class="flex gap-4">
+            <a href="#contato" class="px-6 py-3 bg-dracula-pink text-dracula-bg font-bold rounded-full hover:bg-dracula-purple transition shadow-lg transform hover:scale-105">
+                Fale Comigo
+            </a>
+            <a href="https://github.com/" target="_blank" class="px-6 py-3 border border-dracula-purple text-dracula-purple font-bold rounded-full hover:bg-dracula-purple hover:text-dracula-bg transition">
+                <i class="fab fa-github mr-2"></i>GitHub
+            </a>
+        </div>
+    </header>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="py-16 px-6 max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-10 text-dracula-cyan"><i class="fas fa-user-astronaut mr-2"></i>Sobre Mim</h2>
+        <div class="glass-panel p-8 rounded-xl shadow-xl">
+            <ul class="space-y-4 text-lg">
+                <li class="flex items-start">
+                    <span class="text-dracula-pink mr-3 mt-1">🔭</span>
+                    <span>Atualmente estou trabalhando em <strong class="text-dracula-yellow">Projetos Android e Web</strong></span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-dracula-green mr-3 mt-1">🌱</span>
+                    <span>Aprimorando conhecimentos em <strong class="text-dracula-yellow">Java, Kotlin e Python</strong></span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-dracula-cyan mr-3 mt-1">💬</span>
+                    <span>Interesse em <strong class="text-dracula-yellow">Desenvolvimento Mobile e Web Fullstack</strong></span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="tech" class="py-16 px-6 bg-dracula-current bg-opacity-30">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-dracula-orange"><i class="fas fa-tools mr-2"></i>Tecnologias</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <!-- Card Java -->
+                <div class="glass-panel p-4 rounded-lg flex flex-col items-center justify-center hover-card transition duration-300">
+                    <i class="fab fa-java text-4xl text-red-500 mb-2"></i>
+                    <span class="font-bold">Java</span>
+                </div>
+                <!-- Card Kotlin (Custom icon/Android icon as fallback) -->
+                <div class="glass-panel p-4 rounded-lg flex flex-col items-center justify-center hover-card transition duration-300">
+                    <i class="fab fa-android text-4xl text-green-500 mb-2"></i>
+                    <span class="font-bold">Kotlin / Android</span>
+                </div>
+                <!-- Card Python -->
+                <div class="glass-panel p-4 rounded-lg flex flex-col items-center justify-center hover-card transition duration-300">
+                    <i class="fab fa-python text-4xl text-blue-300 mb-2"></i>
+                    <span class="font-bold">Python</span>
+                </div>
+                <!-- Card HTML5 -->
+                <div class="glass-panel p-4 rounded-lg flex flex-col items-center justify-center hover-card transition duration-300">
+                    <i class="fab fa-html5 text-4xl text-orange-500 mb-2"></i>
+                    <span class="font-bold">HTML5</span>
+                </div>
+                <!-- Card CSS3 -->
+                <div class="glass-panel p-4 rounded-lg flex flex-col items-center justify-center hover-card transition duration-300">
+                    <i class="fab fa-css3-alt text-4xl text-blue-500 mb-2"></i>
+                    <span class="font-bold">CSS3</span>
+                </div>
+                <!-- Card Git -->
+                <div class="glass-panel p-4 rounded-lg flex flex-col items-center justify-center hover-card transition duration-300">
+                    <i class="fab fa-git-alt text-4xl text-red-500 mb-2"></i>
+                    <span class="font-bold">Git</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contato" class="bg-dracula-current py-10 text-center">
+        <h2 class="text-2xl font-bold mb-6 text-dracula-fg">Vamos Conversar?</h2>
+        <div class="flex justify-center space-x-8 mb-8">
+            <a href="mailto:seu.email@exemplo.com" class="text-3xl text-dracula-comment hover:text-dracula-pink transition">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://linkedin.com/in/seu-linkedin" target="_blank" class="text-3xl text-dracula-comment hover:text-dracula-cyan transition">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://instagram.com/seu-instagram" target="_blank" class="text-3xl text-dracula-comment hover:text-dracula-pink transition">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://github.com/" target="_blank" class="text-3xl text-dracula-comment hover:text-dracula-purple transition">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+        <p class="text-dracula-comment text-sm">
+            © 2025 Desenvolvido por Lucineia. Construído com HTML & Tailwind.
+        </p>
+    </footer>
+
 </body>
 </html>
